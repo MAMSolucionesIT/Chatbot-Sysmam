@@ -5,10 +5,21 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_community.document_loaders import TextLoader
 import os
 from dotenv import load_dotenv
+from fastapi.middleware.cors import CORSMiddleware
+
 
 load_dotenv()
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://sysmam.com.ar/"],  # O ["*"] para desarrollo
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 api_key = os.getenv('key')
 model = "deepseek-r1-distill-llama-70b"
