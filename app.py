@@ -14,7 +14,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://sysmam.com.ar/"],  # O ["*"] para desarrollo
+    allow_origins=["https://sysmam.com.ar"],  # O ["*"] para desarrollo
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
